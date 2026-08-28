@@ -26,6 +26,16 @@ Download an exe, windows runs that file, task manager shows that exe. Download a
 
 If `javaw.exe` is running and you didn't start a game or an ide, check the command line. That's the jar.
 
+## scan with defender
+
+You right click a `.jar`, scan with defender, it says 0 threats found. Feels like a green light. It isn't. Defender never actually ran the file.
+
+It just looks at what's on disk and checks if it already knows that junk. A jar is a zip full of class files, not an exe, so most of the usual exe checks don't even apply. Random jars barely show up in those lists anyway, so you get a miss.
+
+And nothing is running. No java, no `javaw.exe`. The scan is basically "have we seen this file before." Not "what happens if you open it."
+
+So 0 threats found only means nothing matched while it was sitting there. Start it with java and it can still hide behind `javaw.exe`.
+
 ## run
 
 ```powershell
